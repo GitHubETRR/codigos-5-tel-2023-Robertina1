@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    printf("Hola, en este programa vas a poder pasar de forma polar a forma binómica\n");
+    printf("Para empezar, ingresa el módulo: ");
+    
+    float modulo, angulo;
+    scanf("%f", &modulo);
+    
+    printf("Ahora ingresa el ángulo: ");
+    scanf("%f", &angulo);
+    
+    float R = modulo * cos(angulo * M_PI / 180);
+    printf("Tu real va a ser %.2f\n", R);
+    
+    float J = modulo * sin(angulo * M_PI / 180);
+    printf("Tu imaginario va a ser %.2f\n", J);
+    
+    printf("Ojala te sirva y gracias por utilizar este programa, hasta la próxima\n");
+    
+    return 0;
+}
