@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    printf("Vamos a calcular la impedancia en base a la tensión y una corriente\n");
+    printf("Indique el módulo de la tensión: ");
+    
+    float mt, at, mi, ai;
+    scanf("%f", &mt);
+    
+    printf("Ahora ingrese el ángulo de la tensión: ");
+    scanf("%f", &at);
+    
+    printf("Indique el módulo de la corriente: ");
+    scanf("%f", &mi);
+    
+    printf("Ahora ingrese el ángulo de la corriente: ");
+    scanf("%f", &ai);
+    
+    float rt = mt * cos(at);
+    float Jt = mt * sin(at);
+    float ri = mi * cos(ai);
+    float Ji = mi * sin(ai);
+    float J = Jt - Ji;
+    float r = rt / ri;
+    
+    printf("Su parte real es %.2f\n", r);
+    printf("Su parte imaginaria es %.2f\n", J);
+    
+    printf("Ingrese la frecuencia de trabajo: ");
+    float F;
+    scanf("%f", &F);
+    
+    float w = (2 * M_PI) * F;
+    
+    if (J <= 0) {
+        float ca = -1 / (w * J);
+        if (ca == 0) {
+            printf("No hay capacitancia\n");
+        } else {
+            printf("El valor del capacitor es %.2f\n", ca);
+        }
+    } else {
+        float ci = w * J;
+        if (ci == 0) {
+            printf("No hay inductancia\n");
+        } else {
+            printf("El valor de inductancia es %.2f\n", ci);
+        }
+    }
+    
+    printf("El valor de la resistencia es %.2f\n", r);
+    
+    return 0;
+}
