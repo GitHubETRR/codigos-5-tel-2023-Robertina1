@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    printf("Hola, la actividad de hoy será larga\n");
+    printf("Comenzamos sumando dos números complejos en forma rectangular\n");
+    printf("Por aquí ingrese la primer parte R1 y R2 de los números complejos:\n");
+    
+    float R1, R2, I1, I2;
+    scanf("%f %f", &R1, &R2);
+    
+    printf("Y acá ingrese la parte I1 y I2 de los números complejos:\n");
+    scanf("%f %f", &I1, &I2);
+    
+    float Rfinal = R1 + R2;
+    float Ifinal = I1 + I2;
+    
+    printf("Ingresa el número 1 si quieres el resultado en forma polar o cualquier otro número para mostrarlo en forma binómica:\n");
+    int var;
+    scanf("%d", &var);
+    
+    if (var == 1) {
+        float modulo = sqrtf(Rfinal * Rfinal + Ifinal * Ifinal);
+        printf("Tu módulo es %.2f\n", modulo);
+        float argumento = atan2f(Rfinal, Ifinal) * 180.0f / M_PI;
+        printf("Tu argumento es %.2f\n", argumento);
+    } else {
+        printf("Tu parte real es %.2f\n", Rfinal);
+        printf("Tu parte imaginaria es %.2f\n", Ifinal);
+    }
+    
+    printf("Muchas gracias por trabajar en este programa\n");
+    
+    return 0;
+}
