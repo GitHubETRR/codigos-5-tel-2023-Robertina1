@@ -1,0 +1,125 @@
+Algoritmo Basket
+	Definir equipo_1_puntos,equipo_2_puntos,simples,dobles,triples Como Entero
+	equipo_1_puntos <- 0
+	equipo_2_puntos <- 0
+	simples <- 0
+	dobles <- 0
+	triples <- 0
+	Mientras Verdadero Hacer
+		Repetir
+			Escribir 'Ingrese el equipo por el cual simpatiza (1 o 2):'
+			Leer equipo
+			Si equipo<>1 Y equipo<>2 Entonces
+				Escribir 'Equipo inválido. Ingrese nuevamente un equipo valido. Solo se permiten equipos 1 y 2'
+			FinSi
+		Hasta Que equipo=1 O equipo=2
+		Repetir
+			Escribir 'Introduzca el valor del punto que lleva su equipo: '
+			Leer puntos
+			Si puntos=1 Entonces
+				simples <- simples+1
+			SiNo
+				Si puntos=2 Entonces
+					dobles <- dobles+1
+				SiNo
+					Si puntos=3 Entonces
+						triples <- triples+1
+					SiNo
+						Si puntos>=4 O puntos<=0 Entonces
+							Escribir 'Solo se lleva la cuenta con puntos simples, doble o triples. Vuelva a ingresar valor válido.'
+						FinSi
+					FinSi
+				FinSi
+			FinSi
+		Hasta Que puntos=1 O puntos=2 O puntos=3
+		Si equipo=1 Entonces
+			equipo_1_puntos <- equipo_1_puntos+puntos
+		SiNo
+			Si equipo=2 
+				Entonces
+				equipo_2_puntos <- equipo_2_puntos+puntos
+			FinSi
+			Escribir 'Ingrese equipo por el que no simpatiza (1 o 2) :'
+			Leer equipo
+			Repetir
+			Hasta Que equipo=1 o equipo=2
+			Si equipo<>1 y equipo<>2 Entonces
+				Escribir 'Ese esquipo no es existente, solo estan jugando los equipos 1 y 2'
+				FinSi
+		FinSi
+		Repetir
+			Escribir 'Introduzca el valor de puntos que lleva dicho equipo:'
+			Leer puntos
+			Si puntos=1 Entonces
+				simples = simples+1
+			SiNo
+				Si puntos=2 Entonces
+					dobles = dobles+2
+				SiNo
+					Si puntos=3 Entonces
+						triples = triples+3
+					SiNo
+						Si puntos >=4 o puntos<=0 Entonces
+							Escribir 'En basquet solo se lleva la cuenta de simples, dobles y triples, cualquier otro valor de puntaje es inexistente'
+						FinSi
+					FinSi
+				FinSi
+			FinSi
+		Hasta Que puntos=1 o puntos=2 o puntos=3
+		Si equipo=1 Entonces
+			equipo_1_puntos = equipo_1_puntos+puntos
+		SiNo
+			Si equipo=2 Entonces
+				equipo_2_puntos = equipo_2_puntos+puntos
+			FinSi
+		FinSi
+		Escribir 'Los puntos sumados hasta el momento por cada equipo son:'
+		Escribir 'Equipo 1:',equipo_1_puntos
+		Escribir 'Equipo 2:',equipo_2_puntos
+		Si equipo_1_puntos>equipo_2_puntos Entonces
+			Escribir 'El equipo 1 va por delante del equipo 2. Felicitaciones equipo 1.'
+		SiNo
+			Si equipo_2_puntos>equipo_1_puntos Entonces
+				Escribir 'El equipo 2 va por delante del equipo 1. Felicitaciones equipo 2.'
+			SiNo
+				Escribir 'Que aburrido, el partido esta igualado en puntos.'
+			FinSi
+		FinSi
+		Repetir
+			Escribir '¿Queres ver los puntos al final del partido? (Si, por favor/No, gracias): '
+			Leer ver_resultados
+			Si ver_resultados='Si, por favor' O ver_resultados='No, gracias' O ver_resultados='S' O ver_resultados='N' Entonces
+				Escribir ''
+			SiNo
+				Escribir 'Punto no válido'
+			FinSi
+		Hasta Que ver_resultados='S' O ver_resultados='Si, por favor' O ver_resultados='N' O ver_resultados='No, gracias'
+		Si ver_resultados='Si, por favor' O ver_resultados='s' Entonces
+			Escribir 'Los Resultados finales son:'
+			Escribir 'Los puntos sumados por cada equipo son:'
+			Escribir 'Equipo 1:',equipo_1_puntos
+			Escribir 'Equipo 2:',equipo_2_puntos
+			Si equipo_1_puntos>equipo_2_puntos Entonces
+				Escribir 'El equipo 1 GANADOR. Felicitaciones.'
+			SiNo
+				Si equipo_2_puntos>equipo_1_puntos Entonces
+					Escribir 'El equipo 2 GANADOR. Felicitaciones.'
+				SiNo
+					Escribir 'Esto fue una igualación de puntos, partido finalizado en empate.'
+				FinSi
+			FinSi
+			total_puntos <- equipo_1_puntos+equipo_2_puntos
+			Escribir 'Cantidad de tiros de los equipos en conjunto:'
+			Escribir 'Simples:',simples
+			Escribir 'Dobles:',dobles
+			Escribir 'Triples:',triples
+			porcentaje_simples <- ((simples*1)/total_puntos)*100
+			porcentaje_dobles <- ((dobles*2)/total_puntos)*100
+			porcentaje_triples <- ((triples*3)/total_puntos)*100
+			Escribir 'Un paneo de los porcentajes de la cantidad de tiros totales de los equipos en conjunto :'
+			Escribir 'Simples:',porcentaje_simples,'%'
+			Escribir 'Dobles:',porcentaje_dobles,'%'
+			Escribir 'Triples:',porcentaje_triples,'%'
+		FinSi
+	FinMientras
+FinAlgoritmo
