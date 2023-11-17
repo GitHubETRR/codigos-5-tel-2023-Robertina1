@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    printf("En este programa vamos a averiguar el valor de la resistencia y el capacitor o inductor según corresponda\n");
+    printf("Ingrese la parte real: ");
+    
+    float R, J, F;
+    scanf("%f", &R);
+    
+    printf("Ingrese la parte imaginaria: ");
+    scanf("%f", &J);
+    
+    printf("Ingrese la frecuencia de trabajo: ");
+    scanf("%f", &F);
+    
+    float w = (2 * M_PI) * F;
+    
+    if (J <= 0) {
+        float CA = -1 / (w * J);
+        if (CA == 0) {
+            printf("No encontramos capacitor\n");
+        } else {
+            printf("El valor del capacitor es %.2f\n", CA);
+        }
+    } else {
+        float CI = w * J;
+        if (CI == 0) {
+            printf("No encontramos inductor\n");
+        } else {
+            printf("El valor de inductancia es %.2f\n", CI);
+        }
+    }
+    
+    printf("El valor de la resistencia es %.2f\n", R);
+    
+    return 0;
+}
